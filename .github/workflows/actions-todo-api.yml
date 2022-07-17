@@ -23,10 +23,10 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build **/todo.api.csproj -c Release
+        run: dotnet build src/todo.api/todo.api.csproj -c Release
 
       - name: dotnet publish
-        run: dotnet publish **/todo.api.csproj -c Release -o ${{env.DOTNET_ROOT}}/todo-api
+        run: dotnet publish src/todo.api/todo.api.csproj -c Release -o ${{env.DOTNET_ROOT}}/todo-api
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
