@@ -1,3 +1,5 @@
+using Todo.Api.Interfaces.Services;
+using Todo.Api.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options => { options.AddDefaultPolicy(config => { config.AllowAnyOrigin(); }); });
+
+builder.Services.AddScoped<ITodoService, TodoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
