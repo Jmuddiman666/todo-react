@@ -3,7 +3,7 @@
 /// <summary>
 ///     Generic interface for tests to retrieve system under test consistently.
 /// </summary>
-internal interface ITestBase<T>
+internal interface ITest<out T>
 {
     #region Public Methods
 

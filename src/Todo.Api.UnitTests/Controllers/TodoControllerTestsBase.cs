@@ -6,7 +6,7 @@ namespace Todo.Api.UnitTests.Controllers;
 /// <summary>
 ///     Base class for <see cref="TodoController" /> related tests.
 /// </summary>
-public abstract class TodoControllerTestsBase : ITestBase<TodoController>
+public abstract class TodoControllerTestsBase : ITest<TodoController>
 {
     #region Fields
 

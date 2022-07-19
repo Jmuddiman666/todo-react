@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Todo.Api.Interfaces.Services;
+using Todo.Api.Models;
 
 namespace Todo.Api.Controllers;
 
