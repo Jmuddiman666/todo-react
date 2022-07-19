@@ -1,4 +1,6 @@
-﻿namespace Todo.Api.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Todo.Api.Models;
 
 /// <summary>
 ///     Defines a basic to do item.
@@ -10,11 +12,13 @@ public class TodoItem
     /// <summary>
     ///     Gets/sets the to do item description.
     /// </summary>
+    [JsonPropertyName("description")]
     public string Description { get; set; } = "";
 
     /// <summary>
     ///     Gets/sets the unique identifier for the item.
     /// </summary>
+    [JsonPropertyName("id")]
     public int Id { get; set; }
 
     /// <summary>
@@ -24,6 +28,7 @@ public class TodoItem
     ///     Pending = 0
     ///     Completed = 1
     /// </remarks>
+    [JsonPropertyName("type")]
     public TodoType Type { get; set; }
 
     #endregion

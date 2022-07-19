@@ -1,3 +1,4 @@
+import { Card } from '@mui/material';
 import React from 'react';
 import { TodoType } from '../../Enums/TodoType';
 import { ListItemProps } from '../../Models/ListItemProps';
@@ -5,11 +6,13 @@ import { ListItemProps } from '../../Models/ListItemProps';
 
 export function ListItem(props: ListItemProps) {
     return (
-        <tr>
-            <td>{props.Id}</td>
-            <td>{props.Description}</td>
-            <td>{props.Type === TodoType.Completed ? 'Completed' : 'Pending'}</td>
-        </tr>);
+        //<tr>
+        //    <td>{props.id}</td>
+        //    <td>{props.description}</td>
+        //    <td>{props.type === TodoType.Completed ? 'Completed' : 'Pending'}</td>
+        //</tr>   
+        <li key={props.id}>{props.description}</li>
+    );
 }
 
 export default ListItem;

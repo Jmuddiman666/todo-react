@@ -1,3 +1,5 @@
+import { Divider } from '@mui/material';
+import { title } from 'process';
 import React, { Component } from 'react';
 import './App.css';
 import List from './Components/List/List';
@@ -21,16 +23,20 @@ export default class App extends Component<{}, ITodoState> {
 
     render() {
         let contents = this.state.loading ?
-            <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p> 
+            <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
             : App.renderTodoList(this.state.todos);
         return (
-            <div><h2>{contents}</h2></div>);
+            <div>
+                <h1 className='App-header'>Todo List</h1>
+                <Divider />
+                <h2>{contents}</h2>
+            </div>);
     }
 
     async populateTodoList() {
-        const endpointClient:IEndpointClient = new EndpointApiClient();
+        const endpointClient: IEndpointClient = new EndpointApiClient();
         const data = await endpointClient.getTodoList();
-        this.setState({todos:data,loading:false});
+        this.setState({ todos: data, loading: false });
     }
 
 }
