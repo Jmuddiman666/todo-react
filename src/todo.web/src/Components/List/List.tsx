@@ -1,4 +1,3 @@
-import { Divider } from '@mui/material';
 import React from 'react';
 import { TodoType } from '../../Enums/TodoType';
 import { ListProps } from '../../Models/ListProps';
@@ -19,7 +18,6 @@ function List(props: ListProps) {
                                 type={listItem.type} />)}
                     </ul>
                 </div>
-                <Divider orientation='vertical' />
                 <div className='right-column'>
                     <h2>Completed</h2>
                     {/*Completed Group*/}

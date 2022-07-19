@@ -1,5 +1,3 @@
-import { Divider } from '@mui/material';
-import { title } from 'process';
 import React, { Component } from 'react';
 import './App.css';
 import List from './Components/List/List';
@@ -28,7 +26,6 @@ export default class App extends Component<{}, ITodoState> {
         return (
             <div>
                 <h1 className='App-header'>Todo List</h1>
-                <Divider />
                 <h2>{contents}</h2>
             </div>);
     }
