@@ -1,60 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
-import { IForecast, IForecastState } from './Forecast';
-import {EndpointApiClient,IEndpointClient} from './Services/Endpoints';
+import List from './Components/List/List';
+import { ITodoItem } from './Models/ITodoItem';
+import { ITodoState } from './Models/ITodoState';
+import { EndpointApiClient, IEndpointClient } from './Services/Endpoints';
 
-export default class App extends Component<{}, IForecastState> {
+export default class App extends Component<{}, ITodoState> {
     static displayName = App.name;
 
     constructor(props: {}) {
         super(props);
-        this.state = { forecasts: [], loading: true };
+        this.state = { todos: [], loading: true };
     }
-
-    static renderForecastsTable(forecasts: IForecast[]) {
-
-        return (
-            <table className='table table-striped' aria-labelledby="tabelLabel">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Temp. (C)</th>
-                        <th>Temp. (F)</th>
-                        <th>Summary</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {forecasts.map(forecast => {
-                        let date = new Date(forecast.date);
-                        return (
-                            <tr key={date.toISOString()}>
-                                <td>{date.toLocaleDateString()}</td>
-                                <td>{forecast.temperatureC}</td>
-                                <td>{forecast.temperatureF}</td>
-                                <td>{forecast.summary}</td>
-                            </tr>);
-                    }
-                    )}
-                </tbody>
-            </table>
-        );
+    static renderTodoList(todoItems: ITodoItem[]) {
+        return (<List listItems={todoItems} />);
     }
-
     componentDidMount() {
-        this.populateWeatherData();
+        this.populateTodoList();
     }
 
     render() {
         let contents = this.state.loading ?
-            <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p> : App.renderForecastsTable(this.state.forecasts);
+            <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
+            : App.renderTodoList(this.state.todos);
         return (
-            <div><h2>{contents}</h2></div>);
+            <div>
+                <h1 className='App-header'>Todo List</h1>
+                <h2>{contents}</h2>
+            </div>);
     }
 
-    async populateWeatherData() {
-        const endpointClient:IEndpointClient = new EndpointApiClient();
-        const data = await endpointClient.getWeatherForecast();
-        this.setState({ forecasts: data, loading: false });
+    async populateTodoList() {
+        const endpointClient: IEndpointClient = new EndpointApiClient();
+        const data = await endpointClient.getTodoList();
+        this.setState({ todos: data, loading: false });
     }
 
 }

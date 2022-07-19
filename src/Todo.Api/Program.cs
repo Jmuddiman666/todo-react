@@ -1,3 +1,8 @@
+
+using Todo.Api.Interfaces.Repositories;
+using Todo.Api.Interfaces.Services;
+using Todo.Api.Repositories;
+using Todo.Api.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options => { options.AddDefaultPolicy(config => { config.AllowAnyOrigin(); }); });
+
+if (builder.Configuration.GetValue<string>("StoreType") == "Text")
+    builder.Services.AddScoped<ITodoRepository, TodoTextRepository>();
+else
+    builder.Services.AddScoped<ITodoRepository, TodoPostgresRepository>();
+
+builder.Services.AddScoped<ITodoService, TodoService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
