@@ -8,6 +8,10 @@
     <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="src\Components\ListItem\" />
+    <Folder Include="src\Components\List\" />
+    <Folder Include="src\Enums\" />
+    <Folder Include="src\Models\" />
     <Folder Include="src\Services\" />
   </ItemGroup>
 </Project>
