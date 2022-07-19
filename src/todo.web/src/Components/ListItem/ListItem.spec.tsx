@@ -11,11 +11,3 @@ test('renders description', () => {
     const tableContent = screen.getByText('complete to-do app');
     expect(tableContent).toBeInTheDocument();
 });
-
-test('renders type enum as text', () => {
-    render(<ListItem id={1}
-        description="todo-item"
-        type={TodoType.Completed }/>);
-    const enumText = screen.getByText('Completed');
-    expect(enumText).toBeInTheDocument();
-})

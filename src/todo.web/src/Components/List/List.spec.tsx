@@ -12,7 +12,7 @@ test('renders a table', () => {
         type: TodoType.Pending
     });
 
-    render(<List key={1} listItems={props.listItems} />);
-    const tableHeader = screen.getByText('Description');
+    render(<List key={1}  listItems={props.listItems} />);
+    const tableHeader = screen.getByText('Pending');
     expect(tableHeader).toBeInTheDocument();
 });
