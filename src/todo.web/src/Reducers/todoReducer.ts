@@ -35,7 +35,7 @@ function todoReducer(state: any, action: any) {
         }
         case 'move-to-pending': {
             let currentTodos: ITodoItem[] = state.todos;
-            let index = currentTodos.findIndex(x => x.id == action.payload.id);
+            let index = currentTodos.findIndex(x => x.id === action.payload.id);
             let item = { ...action.payload, type: TodoType.Pending };
             return {
                 ...state,
@@ -44,7 +44,7 @@ function todoReducer(state: any, action: any) {
         }
         case 'move-to-complete': {
             let currentTodos: ITodoItem[] = state.todos;
-            let index = currentTodos.findIndex(x => x.id == action.payload.id);
+            let index = currentTodos.findIndex(x => x.id === action.payload.id);
             let item = { ...action.payload, type: TodoType.Completed };
             return {
                 ...state,

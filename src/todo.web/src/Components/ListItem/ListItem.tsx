@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
 import { TodoType } from '../../Enums/TodoType';
 import { ListItemProps } from '../../Models/ListItemProps';
 

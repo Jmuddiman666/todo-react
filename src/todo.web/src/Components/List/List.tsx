@@ -1,8 +1,6 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { TodoType } from '../../Enums/TodoType';
 import { ListProps } from '../../Models/ListProps';
-import todoReducer from '../../Reducers/todoReducer';
-import Create from '../Create/Create';
 import ListItem from '../ListItem/ListItem';
 
 function List(props: ListProps) {

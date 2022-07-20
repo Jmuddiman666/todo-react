@@ -29,7 +29,7 @@ function TodoApp() {
 
     const changeTodoGroup = (id: number) => {
         const todoItems: ITodoItem[] = todos;
-        const item = todoItems.find(x => x.id == id);
+        const item = todoItems.find(x => x.id === id);
 
         if (!item) return;
         if (item.type === TodoType.Pending)
