@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Create from './Components/Create/Create';
 import List from './Components/List/List';
 import { ITodoItem } from './Models/ITodoItem';
 import { ITodoState } from './Models/ITodoState';
@@ -13,7 +14,10 @@ export default class App extends Component<{}, ITodoState> {
         this.state = { todos: [], loading: true };
     }
     static renderTodoList(todoItems: ITodoItem[]) {
-        return (<List listItems={todoItems} />);
+        return (<>
+            <Create data-testid='create' />
+            <List listItems={todoItems} data-testid='todo-list' />
+        </>);
     }
     componentDidMount() {
         this.populateTodoList();

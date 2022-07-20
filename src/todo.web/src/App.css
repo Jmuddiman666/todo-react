@@ -71,3 +71,7 @@
 .grid-item {
     grid-column: main
 }
+
+input.cta {
+    background-color:deepskyblue
+}

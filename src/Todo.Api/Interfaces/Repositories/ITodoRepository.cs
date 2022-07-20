@@ -12,5 +12,12 @@ namespace Todo.Api.Interfaces.Repositories
         /// </summary>
         /// <returns>An enumerable collection of <see cref="TodoItem"/>.</returns>
         Task<IEnumerable<TodoItem>?> GetTodoItems();
+
+        /// <summary>
+        /// Create a new to do item in the repository.
+        /// </summary>
+        /// <param name="todoItem">The to-do item to store.</param>
+        /// <returns>The new <see cref="TodoItem"/>.</returns>
+        Task<TodoItem> CreateTodoItem(TodoItem todoItem);
     }
 }

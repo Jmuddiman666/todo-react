@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors(options => { options.AddDefaultPolicy(config => { config.AllowAnyOrigin(); }); });
+builder.Services.AddCors(options => { options.AddDefaultPolicy(config => { config.AllowAnyOrigin().AllowAnyMethod(); }); });
 
 if (builder.Configuration.GetValue<string>("StoreType") == "Text")
     builder.Services.AddScoped<ITodoRepository, TodoTextRepository>();
