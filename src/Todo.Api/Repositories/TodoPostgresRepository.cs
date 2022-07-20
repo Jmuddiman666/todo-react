@@ -29,6 +29,11 @@ namespace Todo.Api.Repositories
             ///
             throw new NotImplementedException();
         }
+        /// <inheritdoc />
+        public async Task<TodoItem> CreateTodoItem(TodoItem todoItem)
+        {
+            throw new NotImplementedException();
+        }
 
         #endregion
     }

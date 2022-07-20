@@ -27,7 +27,8 @@ public class TodoService : ITodoService
     /// <inheritdoc />
     public async Task<TodoItem> CreateTodoItem(TodoItem todoItem)
     {
-        throw new NotImplementedException();
+        var newItem = await _repository.CreateTodoItem(todoItem);
+        return newItem;
     }
 
     #endregion

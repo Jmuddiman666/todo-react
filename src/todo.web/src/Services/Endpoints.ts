@@ -28,12 +28,23 @@ export class EndpointApiClient implements IEndpointClient {
     createTodoItem(todoItem: ITodoItem): Promise<void> {
         let url = this.baseUrl + '/api/todo';
 
-        let options = {
+        var myHeaders = new Headers();
+        myHeaders.append("Accept", "application/json");
+        myHeaders.append("Content-Type", "application/json");
+        var requestOptions: RequestInit = {
             method: 'POST',
-            body: JSON.stringify(todoItem)
+            headers: myHeaders,
+            body: JSON.stringify(todoItem),
+            redirect: 'follow'
         };
-        const response = fetch(url, options);
-        console.info(response);
+
+        var response = fetch(url, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                console.log(result);
+                return result;
+            })
+            .catch(error => console.log('error', error));
         return Promise.resolve();
     }
 
