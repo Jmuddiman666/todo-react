@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { TodoType } from '../../Enums/TodoType';
 import { ListProps } from '../../Models/ListProps';
+import todoReducer from '../../Reducers/todoReducer';
+import Create from '../Create/Create';
 import ListItem from '../ListItem/ListItem';
 
 function List(props: ListProps) {
@@ -22,12 +24,12 @@ function List(props: ListProps) {
                     <h2>Completed</h2>
                     {/*Completed Group*/}
                     <ul>
-                    {props.listItems.filter(x => x.type !== TodoType.Pending).map(listItem =>
-                        <ListItem key={listItem.id}
-                            id={listItem.id}
-                            description={listItem.description}
-                            type={listItem.type} />)}
-                        </ul>
+                        {props.listItems.filter(x => x.type !== TodoType.Pending).map(listItem =>
+                            <ListItem key={listItem.id}
+                                id={listItem.id}
+                                description={listItem.description}
+                                type={listItem.type} />)}
+                    </ul>
                 </div>
             </div>
         </>

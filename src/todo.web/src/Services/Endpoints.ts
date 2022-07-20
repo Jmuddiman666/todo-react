@@ -35,7 +35,6 @@ export class EndpointApiClient implements IEndpointClient {
             method: 'POST',
             headers: myHeaders,
             body: JSON.stringify(todoItem),
-            redirect: 'follow'
         };
 
         //Getting a 415 here locally.

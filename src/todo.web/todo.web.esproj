@@ -13,6 +13,7 @@
     <Folder Include="src\Components\Create\" />
     <Folder Include="src\Enums\" />
     <Folder Include="src\Models\" />
+    <Folder Include="src\Reducers\" />
     <Folder Include="src\Services\" />
   </ItemGroup>
 </Project>
