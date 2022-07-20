@@ -15,19 +15,21 @@ function List(props: ListProps) {
                             <ListItem key={listItem.id}
                                 id={listItem.id}
                                 description={listItem.description}
-                                type={listItem.type} />)}
+                                type={listItem.type}
+                                callback={props.callback} />)}
                     </ul>
                 </div>
                 <div className='right-column'>
                     <h2>Completed</h2>
                     {/*Completed Group*/}
                     <ul>
-                    {props.listItems.filter(x => x.type !== TodoType.Pending).map(listItem =>
-                        <ListItem key={listItem.id}
-                            id={listItem.id}
-                            description={listItem.description}
-                            type={listItem.type} />)}
-                        </ul>
+                        {props.listItems.filter(x => x.type !== TodoType.Pending).map(listItem =>
+                            <ListItem key={listItem.id}
+                                id={listItem.id}
+                                description={listItem.description}
+                                type={listItem.type}
+                                callback={props.callback} />)}
+                    </ul>
                 </div>
             </div>
         </>

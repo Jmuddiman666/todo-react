@@ -1,5 +1,6 @@
 import { ITodoItem } from "./ITodoItem";
 
 export interface ListProps {
-    listItems: ITodoItem[] ;
+    listItems: ITodoItem[];
+    callback: (id: number) => void;
 }

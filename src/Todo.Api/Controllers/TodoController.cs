@@ -28,7 +28,7 @@ public class TodoController : ControllerBase
     #region Public Methods
 
     /// <summary>
-    /// Get a list of all to do items.
+    ///     Get a list of all to do items.
     /// </summary>
     /// <returns></returns>
     [HttpGet(Name = nameof(Get))]
@@ -40,16 +40,27 @@ public class TodoController : ControllerBase
     }
 
     /// <summary>
-    /// Create a new to-do item. Returns an <see cref="OkObjectResult"/>
+    ///     Create a new to-do item. Returns an <see cref="OkObjectResult" />
     /// </summary>
     /// <param name="todoItem"></param>
     /// <returns></returns>
-    [HttpPost(Name =nameof(Create))]
+    [HttpPost(Name = nameof(Create))]
     [ProducesResponseType(typeof(TodoItem), StatusCodes.Status200OK)]
     public async Task<IActionResult> Create(TodoItem todoItem)
     {
         var newItem = await _todoService.CreateTodoItem(todoItem);
         return Ok(newItem);
+    }
+    /// <summary>
+    ///     Update an existing to-do item.
+    /// </summary>
+    /// <param name="todoItem">The update to-do item.</param>
+    /// <returns>Returns an <see cref="OkObjectResult" /></returns>
+    [HttpPut(Name = nameof(Update))]
+    public async Task<IActionResult> Update(TodoItem todoItem)
+    {
+        var updatedItem = await _todoService.UpdateTodoItem(todoItem);
+        return Ok(updatedItem);
     }
 
     #endregion

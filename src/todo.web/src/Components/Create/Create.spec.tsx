@@ -5,13 +5,13 @@ import * as jest from 'jest';
 import exp from 'constants';
 
 test('renders text input', () => {
-    render(<Create />);
+    render(<Create dispatch={() => { }} text='test'/>);
     const textInput = screen.getByTestId('new-item-text');
     expect(textInput).toContainHTML('<input ');
 });
 
 test('renders create button', () => {
-    render(<Create />);
+    render(<Create dispatch={() => { }} text='test' />);
     const createButton = screen.getByTestId('create-button');
     expect(createButton).toHaveValue('Create');
 });
