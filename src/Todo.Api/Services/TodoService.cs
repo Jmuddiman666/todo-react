@@ -7,15 +7,24 @@ namespace Todo.Api.Services;
 /// <inheritdoc />
 public class TodoService : ITodoService
 {
+    #region Fields
+
     private readonly ITodoRepository _repository;
 
+    #endregion
+
+    #region Constructors
+
     /// <summary>
-    /// Default constructor
+    ///     Default constructor
     /// </summary>
     public TodoService(ITodoRepository repository)
     {
         _repository = repository;
     }
+
+    #endregion
+
     #region Public Methods
 
     /// <inheritdoc />
@@ -29,6 +38,11 @@ public class TodoService : ITodoService
     {
         var newItem = await _repository.CreateTodoItem(todoItem);
         return newItem;
+    }
+    /// <inheritdoc />
+    public async Task<TodoItem> UpdateTodoItem(TodoItem todoItem)
+    {
+        return await _repository.UpdateTodoItem(todoItem);
     }
 
     #endregion
