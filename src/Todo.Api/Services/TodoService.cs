@@ -19,10 +19,15 @@ public class TodoService : ITodoService
     #region Public Methods
 
     /// <inheritdoc />
-    public async Task<IEnumerable<TodoItem>?> GetTodoItems()
+    public async Task<IEnumerable<TodoItem>> GetTodoItems()
     {
         var data = await _repository.GetTodoItems();
-        return data;
+        return data ?? new List<TodoItem>();
+    }
+    /// <inheritdoc />
+    public async Task<TodoItem> CreateTodoItem(TodoItem todoItem)
+    {
+        throw new NotImplementedException();
     }
 
     #endregion

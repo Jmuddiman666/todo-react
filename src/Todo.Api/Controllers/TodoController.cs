@@ -27,12 +27,29 @@ public class TodoController : ControllerBase
 
     #region Public Methods
 
+    /// <summary>
+    /// Get a list of all to do items.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet(Name = nameof(Get))]
     [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<IActionResult> Get()
     {
         var result = await _todoService.GetTodoItems();
         return Ok(result);
+    }
+
+    /// <summary>
+    /// Create a new to-do item. Returns an <see cref="OkObjectResult"/>
+    /// </summary>
+    /// <param name="todoItem"></param>
+    /// <returns></returns>
+    [HttpPost(Name =nameof(Create))]
+    [ProducesResponseType(typeof(TodoItem), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Create(TodoItem todoItem)
+    {
+        var newItem = await _todoService.CreateTodoItem(todoItem);
+        return Ok(newItem);
     }
 
     #endregion
