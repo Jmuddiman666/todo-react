@@ -1,3 +1,6 @@
+import { TodoType } from "../Enums/TodoType";
+import { ITodoItem } from "../Models/ITodoItem";
+
 /**
  * Reducer for todo related state
  * @param state Current state
@@ -28,6 +31,24 @@ function todoReducer(state: any, action: any) {
             return {
                 ...state,
                 text: action.payload
+            };
+        }
+        case 'move-to-pending': {
+            let currentTodos: ITodoItem[] = state.todos;
+            let index = currentTodos.findIndex(x => x.id == action.payload.id);
+            let item = { ...action.payload, type: TodoType.Pending };
+            return {
+                ...state,
+                todos: [...currentTodos.splice(index, 1), item]
+            };
+        }
+        case 'move-to-complete': {
+            let currentTodos: ITodoItem[] = state.todos;
+            let index = currentTodos.findIndex(x => x.id == action.payload.id);
+            let item = { ...action.payload, type: TodoType.Completed };
+            return {
+                ...state,
+                todos: [...currentTodos.splice(index, 1), item]
             };
         }
         case 'reset-text': {

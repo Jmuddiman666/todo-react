@@ -7,7 +7,8 @@ import { TodoType } from '../../Enums/TodoType';
 test('renders description', () => {
     render(<ListItem id={1}
         description="complete to-do app"
-        type={TodoType.Pending} />);
+        type={TodoType.Pending}
+        callback={() => { }} />);
     const tableContent = screen.getByText('complete to-do app');
     expect(tableContent).toBeInTheDocument();
 });

@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from 'react';
 import Create from './Components/Create/Create';
 import List from './Components/List/List';
+import { TodoType } from './Enums/TodoType';
 import { ITodoItem } from './Models/ITodoItem';
 import todoReducer from './Reducers/todoReducer';
 import { EndpointApiClient, IEndpointClient } from './Services/Endpoints';
@@ -22,8 +23,22 @@ function TodoApp() {
 
         return (<>
             <Create data-testid='create' dispatch={dispatch} text={text} />
-            <List listItems={todoItems} data-testid='todo-list' />
+            <List listItems={todoItems} data-testid='todo-list' callback={changeTodoGroup} />
         </>);
+    };
+
+    const changeTodoGroup = (id: number) => {
+        const todoItems: ITodoItem[] = todos;
+        const item = todoItems.find(x => x.id == id);
+
+        if (!item) return;
+        if (item.type === TodoType.Pending)
+            dispatch({ type: 'move-to-complete', payload: item });
+        else {
+            dispatch({ type: 'move-to-pending', payload: item });
+
+        }
+        console.log(id);
     };
 
     useEffect(() => { populateTodoList(); }, []);
