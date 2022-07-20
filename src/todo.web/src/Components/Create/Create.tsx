@@ -11,6 +11,7 @@ export function Create() {
 
             const client: IEndpointClient = new EndpointApiClient();
             client.createTodoItem({ id: 0, description: text, type: TodoType.Pending });
+            //Need to refresh the list
         }
     };
     return (< >

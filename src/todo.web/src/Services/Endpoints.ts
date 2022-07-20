@@ -12,7 +12,7 @@ export interface IEndpointClient {
      * Create a new Todo Item
      * @param todoItem
      */
-    createTodoItem(todoItem: ITodoItem): Promise<void>;
+    createTodoItem(todoItem: ITodoItem): Promise<ITodoItem>;
 }
 
 export class EndpointApiClient implements IEndpointClient {
@@ -25,7 +25,7 @@ export class EndpointApiClient implements IEndpointClient {
      * Create a new Todo Item
      * @param todoItem
      */
-    createTodoItem(todoItem: ITodoItem): Promise<void> {
+    createTodoItem(todoItem: ITodoItem): Promise<ITodoItem> {
         let url = this.baseUrl + '/api/todo';
 
         var myHeaders = new Headers();
@@ -38,14 +38,15 @@ export class EndpointApiClient implements IEndpointClient {
             redirect: 'follow'
         };
 
+        //Getting a 415 here locally.
         var response = fetch(url, requestOptions)
-            .then(response => response.text())
+            .then(response => response.json())
             .then(result => {
                 console.log(result);
                 return result;
             })
             .catch(error => console.log('error', error));
-        return Promise.resolve();
+        return response;
     }
 
     /**
