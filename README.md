@@ -1,4 +1,8 @@
  ## TODO App
+
+ [![Azure Static Web Apps CI/CD](https://github.com/Jmuddiman666/todo-react/actions/workflows/azure-static-web-apps-ashy-sky-098133f03.yml/badge.svg?branch=main)](https://github.com/Jmuddiman666/todo-react/actions/workflows/azure-static-web-apps-ashy-sky-098133f03.yml)
+ [![Build and deploy ASP.Net Core app to Azure Web App - jm-todo-sample](https://github.com/Jmuddiman666/todo-react/actions/workflows/actions-todo-api.yml/badge.svg?branch=main)](https://github.com/Jmuddiman666/todo-react/actions/workflows/actions-todo-api.yml)
+
  This is a fairly simple Todo App leveraging React (Typescript) and ASP.NET 6 WebApi
  This solution has taken 5-6 hours to put together, a lot of that effort has been getting the esproj project to communicate with the API, and styling. 
  
@@ -51,6 +55,17 @@
   npm install
   npm test
  ```
+
+ ## Deployment
+ Github actions automate the deployment of both the web and api. 
+
+ Action workflows can be found in `.github/workflows`
+
+ Web is hosted on Azure Static Apps
+ https://ashy-sky-098133f03.1.azurestaticapps.net/
+
+ API is hosted on Azure App Service
+ http://jm-todo-sample.azurewebsites.net/
 
  ## Notes
  - What technical and functional assumptions did you make when implementing your solution? 
