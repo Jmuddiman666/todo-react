@@ -7,7 +7,12 @@ Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "todo.web", "todo.web\todo.w
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api", "Todo.Api\Todo.Api.csproj", "{CA5E8B60-25B4-4206-BEBB-7632869BC00D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Api.UnitTests", "Todo.Api.UnitTests\Todo.Api.UnitTests.csproj", "{3F5043C6-400A-4027-AFAD-D6700C5AC97B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api.UnitTests", "Todo.Api.UnitTests\Todo.Api.UnitTests.csproj", "{3F5043C6-400A-4027-AFAD-D6700C5AC97B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{75CF871E-81F9-4E28-BBAA-6908B5DC4D1E}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
